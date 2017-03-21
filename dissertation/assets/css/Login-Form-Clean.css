@@ -1,0 +1,173 @@
+.login-clean {
+  background:#cca;
+  padding:40px 80px;
+}
+
+.login-clean form {
+  max-width:320px;
+  width:90%;
+  margin:0 auto;
+  background-color:#ffffff;
+  padding:40px;
+  border-radius:4px;
+  color:#505e6c;
+  box-shadow:1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.login-clean .illustration {
+  text-align:center;
+  padding:0 0 20px;
+  font-size:100px;
+  color:rgb(244,71,107);
+}
+
+.login-clean form .form-control {
+  background:#313417;
+  border:none;
+  border-bottom:1px solid #dfe7f1;
+  border-radius:0;
+  box-shadow:none;
+  outline:none;
+  color:inherit;
+  text-indent:8px;
+  height:42px;
+}
+
+.login-clean form .btn-primary {
+  background:#313417;
+  border:none;
+  border-radius:4px;
+  padding:11px;
+  box-shadow:none;
+  text-shadow:none;
+  outline:none !important;
+}
+
+.login-clean form .btn-primary:hover, .login-clean form .btn-primary:active {
+  background:#eb3b60;
+}
+
+.login-clean form .btn-primary:active {
+  transform:translateY(1px);
+}
+
+.login-clean form .forgot {
+  display:block;
+  text-align:center;
+  font-size:12px;
+  color:#6f7a85;
+  opacity:0.9;
+  text-decoration:none;
+}
+
+.login-clean form .forgot:hover, .login-clean form .forgot:active {
+  opacity:1;
+  text-decoration:none;
+}
+
+div#background {
+  color:#313417;
+  height:100%;
+  width:100%;
+}
+
+img.avatar {
+  width:15%;
+  height:15%;
+  border-radius:5%;
+  margin-left:5%;
+  margin-bottom:5%;
+}
+
+.userdescription {
+  width:50%;
+  display:inline-block;
+  margin-left:15%;
+}
+
+h3#profileusername.text-right {
+  color:#cca;
+}
+
+table.table.messagetable {
+  max-width:80%;
+  margin:auto;
+}
+
+strong {
+}
+
+.row div strong {
+  float:left;
+  margin-left:1%;
+}
+
+.row div p {
+  display:inline-block;
+}
+
+div.tab-content {
+  width:80%;
+  justify-content:center;
+}
+
+ul.nav.nav-tabs {
+  width:80%;
+}
+
+img.img-circle {
+  width:200px;
+}
+
+div a img.img-responsive {
+  width:200px;
+  height:200px;
+  margin:auto;
+  border-radius:5%;
+  margin-top:10px;
+  margin-bottom:3%;
+}
+
+section {
+  color:#313417;
+  min-height:500px;
+  z-index:0;
+  position:relative;
+}
+
+small.messagedate {
+  float:right;
+  display:inline-block;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  color:#cca;
+  background-color:#313417;
+  border:1px solid #e7e7e7;
+  border-bottom-color:transparent;
+  cursor:default;
+}
+
+p.message {
+  margin-left:10%;
+}
+
+div.col-md-12 {
+  padding:1%;
+}
+
+img#loginavatar {
+  width:200px;
+}
+
+a#registerlink {
+  text-align:center;
+  color:#6f7a85;
+  display:block;
+}
+
+img.profileimage {
+  width:160px;
+  height:160px;
+}
+
