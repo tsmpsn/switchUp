@@ -116,7 +116,10 @@ section.testimonials {
 
 .site-footer {
   padding:20px 0;
-  text-align:center;
+  width:100%;
+  background-color:#f2f2f2;
+  position:absolute;
+  bottom:0;
 }
 
 @media (min-width:768px) {

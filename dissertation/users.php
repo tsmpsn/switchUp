@@ -3,9 +3,8 @@
 require_once 'init.php';
 
 function userExists($username) {
-	
-	$username = sanitizeData($username);
 	$con = mysqli_connect("localhost", "root", "edward", "switchUP");
+	$username = sanitizeData($con, $username);
 	$query = "SELECT id FROM users WHERE username = '$username'";
 	$result = mysqli_query($con, $query);
 	
@@ -16,24 +15,31 @@ function userExists($username) {
 	}
 
     mysqli_free_result($result);
-	mysqli_close($link);
 }
 
 function getUserIDFromUsername($username) {
-	$username = sanitizeData($username);
 	$con = mysqli_connect("localhost", "root", "edward", "switchUP");
+	$username = sanitizeData($con, $username);
 	$query = "SELECT id FROM users WHERE username = '$username'";
 	$result = mysqli_query($con, $query);
 	$obj = mysqli_fetch_object($result);
 	return $obj->id;
 }
 
-// Returns the userID if the login details are correct
+function getUsernameFromUserID($userID) {
+	$con = mysqli_connect("localhost", "root", "edward", "switchUP");
+	$username = sanitizeData($con, $userID);
+	$query = "SELECT username FROM users WHERE id = '$userID'";
+	$result = mysqli_query($con, $query);
+	$obj = mysqli_fetch_object($result);
+	return $obj->username;
+}
+
 function userLogin($username, $password) {
 	$userID = getUserIDFromUsername($username);
-	$username = sanitizeData($username);
-	$password = md5($password);
 	$con = mysqli_connect("localhost", "root", "edward", "switchUP");
+	$username = sanitizeData($con, $username);
+	$password = md5($password);
 	$query = "SELECT id, password FROM users WHERE username = '$username'";
 	$result = mysqli_query($con, $query);
 	$obj = mysqli_fetch_object($result);

@@ -6,7 +6,7 @@ $userID = $_SESSION["userID"];
 if ($_POST) {
 	$itemType = $_POST['itemtype'];
 	$size = $_POST['size'];
-	$price = validPrice($_POST['price']);
+	$price = $_POST['price'];
 	$description = $_POST['description'];
 	$condition = $_POST['condition'];
 	$sold = 0;
@@ -14,7 +14,7 @@ if ($_POST) {
 	$sql = "INSERT INTO item (itemID, userID, Type, Size, Price, Description, ItemCondition, UploadTime, Sold) VALUES ('$itemID', '$userID', '$itemType', '$size', '$price', '$description', $condition, now(), $sold)";
 	$imageID = getHighestImageID();
 	$imageURL = getImageURL();
-	$sql2 = "INSERT INTO image (imageID, itemID, imageURL) VALUES ('$imageID', '$itemID', '$imageURL')";
+	$sql2 = "INSERT INTO images (imageID, itemID, imageURL) VALUES ('$imageID', '$itemID', '$imageURL')";
 	if(mysqli_query($con, $sql) && mysqli_query($con, $sql2)){
 		echo "Records inserted successfully.";
 	} else{
@@ -28,7 +28,7 @@ function getHighestItemID() {
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_fetch_object($result);
 	$value = $row->itemID + 1;
-	return $row->itemID;
+	return $value;
 }
 
 function getHighestImageID() {
@@ -37,7 +37,7 @@ function getHighestImageID() {
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_fetch_object($result);
 	$value = $row->imageID + 1;
-	return $row->imageID;
+	return $value;
 }
 
 function getImageURL() {
@@ -64,12 +64,6 @@ function getImageURL() {
 		$uploadOk = 0;
 	}
 	return $target_file;
-}
-
-function validPrice($input) {
-	if (is_numeric($input) {
-		return $input;
-	}
 }
 
 ?>

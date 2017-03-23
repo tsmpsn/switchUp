@@ -1,8 +1,15 @@
 <?php
 require_once 'init.php';
+require 'upload.php';
 
 $con = mysqli_connect("localhost", "root", "edward", "switchUP");
 $userID = $_SESSION["userID"];
+
+// Get user details
+$query = "SELECT description FROM users WHERE id = '$userID'";
+$result = mysqli_query($con, $query);
+$user = mysqli_fetch_assoc($result);
+$userDescription = $user['description'];
 
 // Get users items
 $retrieveUserItems = "SELECT * FROM item WHERE userID = '$userID'";
@@ -52,9 +59,10 @@ while ($row = mysqli_fetch_object($result)) {
         <form method="post" enctype="multipart/form-data">
             <h2 class="text-center">Tell us about your item</h2>
             <div class="form-group">
+                <input type="file" name="image1ToUpload" id="image1ToUpload">
+				<!--<input type="file" name="images[]" />
 				<input type="file" name="images[]" />
-				<input type="file" name="images[]" />
-				<input type="file" name="images[]" />
+				<input type="file" name="images[]" /> -->
             </div>
             <div class="form-group">
                 <select class="form-control" name="itemtype" id="ITselection">
@@ -151,31 +159,31 @@ while ($row = mysqli_fetch_object($result)) {
 		<div class="container userdetails"><img class="img-rounded avatar" src="assets/img/fbpic.jpg" alt="User Avatar" width="25%" height="25%">
             <div class="userdescription">
                 <h2 class="text-center" id="profileusername"><?php if (isSet($_SESSION['userID'])) {echo"Welcome " . $_SESSION['username'];}?></h2>
-                <p>Aliquam ex sapien, cursus sit amet facilisis sit amet, consectetur a nisi. Etiam dolor nulla, lobortis vel lobortis vel, tincidunt vitae purus. Maecenas luctus lacinia nisi, at viverra leo tincidunt ac. Fusce eu interdum ante. Curabitur
-                    varius pharetra nulla ac suscipit. Nullam a diam vitae arcu semper malesuada. </p>
+                <p><?php if ($userDescription == "empty") { echo "Add Description"; } else { echo $userDescription; }?></p>
             </div>
         </div>
         <section>
             <div class="container">
-                <div class="row people">
-					<div class="col-md-4 col-sm-6 item">
+				<div class="row people">
 					<?php for ($i = 0; $i < $counter; $i++) { ?>
-						<div class="box">
+					<div class="col-md-4 col-sm-6 item">
+						<div class="articles box">
 							<img class="img-rounded profileimage" src="<?php echo $imageURL[$i];?>"></a>
 							<h3 class="name"><?php echo "£" . $priceDB[$i];?></h3>
 							<p class="title"><?php echo "£" . $conditionDB[$i];?></p>
 							<p class="description"><?php echo $sizeDB[$i] . "\t";if ($conditionDB == 11) {echo "NEW";} else {$conditionDB[$i];} echo $descriptionDB[$i];?></p>
 							<div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-						</div>
-					<?php } ?>
+						</div>	
 					</div>
-                 </div>
-            </div>
+					<?php } ?>
+				</div>
+			</div>
         </section>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/uploadform.js"></script>
+	<script src="parsley.min.js"></script>
 </body>
 
 </html>

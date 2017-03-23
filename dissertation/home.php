@@ -1,5 +1,6 @@
 <?php
 require_once 'init.php';
+require 'upload.php';
 
 $con = mysqli_connect("localhost", "root", "edward", "switchUP");
 $userID = $_SESSION["userID"];
@@ -12,6 +13,7 @@ $counter = 0;
 while ($row = mysqli_fetch_object($result)) {
     $counter++;
 	$itemIDDB[] = $row->itemID;
+	$userIDDB[] = getUsernameFromUserID($row->userID);
 	$sizeDB[] = $row->Size;
     $priceDB[] = $row->Price;
     $descriptionDB[] = $row->Description;
@@ -140,17 +142,17 @@ while ($row = mysqli_fetch_object($result)) {
         <div class="container">
             <div class="intro">
                 <h2 class="text-center"><?php if (isSet($_SESSION['userID'])) {echo"Welcome " . $_SESSION['username'];}?></h2></div>
-				<div class="row articles">
+				<div class="row people">
 					<?php for ($i = 0; $i < $counter; $i++) { ?>
 						<div class="col-md-4 col-sm-6 item">
 						<a href="#"><img class="img-responsive" src="<?php echo $imageURL[$i];?>"></a>
-						<h4 class="itemh3"><?php echo "£" . $priceDB[$i];?></h4><h4 class="item3"><?php echo $sizeDB[$i] . "\t";if ($conditionDB == 11) {echo "NEW";} else {$conditionDB[$i];} echo $descriptionDB[$i];?></h4>
+						<h4 class="itemh3"><?php echo "£" . $priceDB[$i];?></h4>
+						<h4 class="item3"><?php echo $sizeDB[$i] . "\t";if ($conditionDB == 11) {echo "NEW";} else {$conditionDB[$i];} echo $descriptionDB[$i]; echo $userIDDB[$i];?></h4>
 						</div>
 					<?php } ?>
 				</div>
         </div>
 	</div>
-		<section></section>
 		<footer class="site-footer">
 			<div class="container">
 				<div class="row">

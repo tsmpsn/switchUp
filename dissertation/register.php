@@ -109,6 +109,7 @@
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/uploadform.js"></script>
+	<script src="parsley.min.js"></script>
 </body>
 
 </html>

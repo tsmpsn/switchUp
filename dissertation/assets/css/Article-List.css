@@ -92,7 +92,7 @@ div.form-group {
   margin:auto;
 }
 
-h4.itemh3 {
+h4.itemh4 {
   display:inline;
   height:10px;
   width:50%;
@@ -112,5 +112,20 @@ h4.itemcondition {
 .box h3, .box p {
   text-align:center;
   width:100%;
+}
+
+form#requestatrade {
+  width:40%;
+  float:right;
+}
+
+body {
+  min-height:100%;
+  background-color:#cca;
+}
+
+img.img-rounded.starrating {
+  margin-left:5%;
+  margin-bottom:5%;
 }
 
