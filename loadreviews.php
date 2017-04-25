@@ -11,7 +11,6 @@ while ($row = mysqli_fetch_object($result)) {
 	$RdescriptionDB[] = $row->description;
 	$leftByDB[] = $row->leftBy;
 	$dateLeftDB[] = $row->dateLeft;
-	$timeRequestedDB[] = $row->lastChanged;
 }
 
 ?>

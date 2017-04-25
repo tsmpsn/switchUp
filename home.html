@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dissertation</title>
+    <title>home</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/Article-List.css">
     <link rel="stylesheet" href="assets/css/AXY-Contact-Us.css">
     <link rel="stylesheet" href="assets/css/AXY-Contact-Us1.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean-1.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
@@ -48,273 +49,315 @@
             <input class="form-control hidden" type="text" name="tradeID">
         </form>
     </div>
-    <div class="col-md-3 panel">
-        <div class="row" id="tmrow">
-            <div class="col-md-6 panelheader" id="loadtrades"><a href="#"><h4>Trades </h4></a></div>
-            <div class="col-md-6 panelheader" id="loadmessages"><a href="#"><h4>Messages </h4></a></div>
-            <div class="col-md-12 panelcontent" id="trademessages">
-                <div id="usertrades">
-                    <div id="trequests">
-                        <h4 class="text-center">Trade Requests</h4>
-                        <div class="row tradereq" id="tradeID1">
-                            <div class="col-md-6">
-                                <h5>Item 1</h5></div>
-                            <div class="col-md-6">
-                                <h5>Item2 </h5></div>
-                        </div>
-                        <div class="row tradereq">
-                            <div class="col-md-5">
-                                <h5>username</h5></div>
-                            <div class="col-md-7 tradedecision">
-                                <form method="post">
-                                    <input class="form-control hidden" type="text" name="tradeID">
-                                    <button class="btn btn-default btn-xs" type="submit">decline </button>
-                                    <button class="btn btn-default btn-xs" type="submit">accept </button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="row tradereq" id="tradeID2">
-                            <div class="col-md-6">
-                                <h5>Item 1</h5></div>
-                            <div class="col-md-6">
-                                <h5>Item2 </h5></div>
-                        </div>
-                        <div class="row tradereq">
-                            <div class="col-md-5">
-                                <h5>username</h5></div>
-                            <div class="col-md-7 tradedecision">
-                                <form method="post">
-                                    <input class="form-control hidden" type="text" name="tradeID">
-                                    <button class="btn btn-default btn-xs" type="submit">decline </button>
-                                    <button class="btn btn-default btn-xs" type="submit">accept </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="taccepted">
-                        <h4 class="text-center">Trades Accepted</h4>
-                        <div class="row tradereq" id="tradeID1">
-                            <div class="col-md-6">
-                                <h5>Item 1</h5></div>
-                            <div class="col-md-6">
-                                <h5>Item2 </h5></div>
-                        </div>
-                        <div class="row tradereq">
-                            <div class="col-md-5">
-                                <h5>username</h5></div>
-                            <div class="col-md-7 tradedecision">
-                                <form method="post">
-                                    <input class="form-control hidden" type="text" name="tradeID">
-                                    <button class="btn btn-default btn-xs lvreview" type="button">leave a review </button>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="row tradereq" id="tradeID2">
-                            <div class="col-md-6">
-                                <h5>Item 1</h5></div>
-                            <div class="col-md-6">
-                                <h5>Item2 </h5></div>
-                        </div>
-                        <div class="row tradereq">
-                            <div class="col-md-5">
-                                <h5>username</h5></div>
-                            <div class="col-md-7 tradedecision">
-                                <form method="post">
-                                    <input class="form-control hidden" type="text" name="tradeID">
-                                    <button class="btn btn-default btn-xs lvreview" type="button">leave a review </button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tdeclined">
-                        <h4 class="text-center">Trades Declined</h4>
-                        <div class="row tradereq" id="tradeID1">
-                            <div class="col-md-6">
-                                <h5>Item 1</h5></div>
-                            <div class="col-md-6">
-                                <h5>Item2 </h5></div>
-                        </div>
-                        <div class="row tradereq" id="tradeID2">
-                            <div class="col-md-6">
-                                <h5>Item 1</h5></div>
-                            <div class="col-md-6">
-                                <h5>Item2 </h5></div>
-                        </div>
-                    </div>
-                    <div id="tcompleted">
-                        <h4 class="text-center">Trades Completed</h4>
-                        <div class="row tradereq">
-                            <div class="col-md-6">
-                                <div class="row tradereq">
-                                    <div class="col-md-12">
+    <div id="panelbackground">
+        <div class="col-md-3 panel">
+            <div class="row" id="tmrow">
+                <div class="col-md-6 panelheader" id="loadtrades"><a href="#"><h4>Trades </h4></a></div>
+                <div class="col-md-6 panelheader" id="loadmessages"><a href="#"><h4>Messages </h4></a></div>
+                <div class="col-md-12 panelcontent" id="trademessages">
+                    <div id="usertrades">
+                        <div id="trequests">
+                            <h4 class="text-center">Trade Requests</h4>
+                            <div class="traderow">
+                                <div class="row tradeitems">
+                                    <div class="col-md-6">
                                         <h5>Item 1</h5></div>
+                                    <div class="col-md-6">
+                                        <h5>Item2 </h5></div>
                                 </div>
-                                <div class="row tradereq">
-                                    <div class="col-md-12">
-                                        <h5>username</h5></div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>username </h5></div>
+                                    <div class="col-md-6">
+                                        <h5>tradetype </h5></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12 tradedecision">
+                                        <form method="post">
+                                            <input class="form-control hidden" type="text" name="tradeID">
+                                            <button class="btn btn-default btn-sm" type="submit" style="color:green;">confirm </button>
+                                            <button class="btn btn-default btn-sm" type="submit">decline </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="traderow">
                                 <div class="row tradereq">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <h5>Item 1</h5></div>
+                                    <div class="col-md-6">
+                                        <h5>Item2 </h5></div>
+                                </div>
+                                <div class="row tradereq">
+                                    <div class="col-md-6">
+                                        <h5>username</h5></div>
+                                    <div class="col-md-6 tradedecision">
+                                        <form method="post">
+                                            <input class="form-control hidden" type="text" name="tradeID">
+                                            <button class="btn btn-default btn-xs" type="submit">accept </button>
+                                            <button class="btn btn-default btn-xs" type="submit">decline </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="taccepted">
+                            <h4 class="text-center">Trades Accepted</h4>
+                            <div class="traderow">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Item 1</h5></div>
+                                    <div class="col-md-6">
+                                        <h5>Item2 </h5></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>username</h5></div>
+                                    <div class="col-md-6 leavereviewbtn">
+                                        <form method="post">
+                                            <input class="form-control hidden" type="text" name="tradeID">
+                                            <button class="btn btn-default btn-xs lvreview" type="button">leave review</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="traderow">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Item 1</h5></div>
+                                    <div class="col-md-6">
+                                        <h5>Item2 </h5></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>username</h5></div>
+                                    <div class="col-md-6 leavereviewbtn">
+                                        <form method="post">
+                                            <input class="form-control hidden" type="text" name="tradeID">
+                                            <button class="btn btn-default btn-xs lvreview" type="button">leave review</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tdeclined">
+                            <h4 class="text-center">Trades Declined</h4>
+                            <div class="traderow">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Item 1</h5></div>
+                                    <div class="col-md-6">
+                                        <h5>Item2 </h5></div>
+                                </div>
+                            </div>
+                            <div class="traderow">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Item 1</h5></div>
+                                    <div class="col-md-6">
+                                        <h5>Item2 </h5></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tcompleted">
+                            <h4 class="text-center">Trades Completed</h4>
+                            <div class="traderow">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Item 1</h5></div>
+                                    <div class="col-md-6">
                                         <h5>Item 2</h5></div>
                                 </div>
-                                <div class="row tradereq">
-                                    <div class="col-md-12">
-                                        <h5>27/03/17 </h5></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row tradereq">
-                            <div class="col-md-6">
-                                <div class="row tradereq">
-                                    <div class="col-md-12">
-                                        <h5>Item 1</h5></div>
-                                </div>
-                                <div class="row tradereq">
-                                    <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
                                         <h5>username</h5></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="row tradereq">
-                                    <div class="col-md-12">
-                                        <h5>Item 2</h5></div>
-                                </div>
-                                <div class="row tradereq">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <h5>27/03/17 </h5></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="usermessages">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h6>username </h6></div>
-                        <div class="col-md-7 messagecontent">
-                            <h6>Item 1</h6></div>
-                        <div class="col-md-2">
-                            <h6>14:02 </h6></div>
-                    </div>
-                </div>
-                <div id="leavereview">
-                    <h4 class="text-center">Leave Review</h4>
-                    <form method="post" id="userreviewform">
-                        <div class="form-group">
-                            <textarea class="form-control" form="userreviewform" maxlength="50"></textarea>
+                    <div id="usermessages">
+                        <div class="row convorow">
+                            <div class="col-md-4 convodetails">
+                                <p>Username</p>
+                                <p>18/02/18</p>
+                            </div>
+                            <div class="col-md-8 messagecontent">
+                                <p>This is the example message</p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <select class="form-control">
-                                <optgroup label="User Rating">
-                                    <option value="5" selected="">5</option>
-                                    <option value="4">4</option>
-                                    <option value="3">3</option>
-                                    <option value="2">2</option>
-                                    <option value="1">1</option>
-                                </optgroup>
-                            </select>
+                        <div class="row convorow">
+                            <div class="col-md-4 convodetails">
+                                <p>Username</p>
+                                <p>18/02/18</p>
+                            </div>
+                            <div class="col-md-8 messagecontent">
+                                <p>This is the example message</p>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <button class="btn btn-default btn-xs" type="button" id="submitreview">submit</button>
-                        </div>
-                        <input class="form-control hidden" type="text" name="tradeID">
-                    </form>
-                    <p>Please remember, reviews are permenant and cannot be changed</p>
-                </div>
-                <div id="conversation">
-                    <h4 class="text-center">Username </h4>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>Paragraph</p>
-                        </div>
-                        <div class="col-md-12">
-                            <p>Paragraph</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>Paragraph</p>
-                        </div>
-                        <div class="col-md-12">
-                            <p>Paragraph</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>Paragraph</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>Paragraph</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form method="post" id="messageuser">
-                                <div class="col-md-8">
-                                    <textarea class="form-control" form="userreviewform" maxlength="50"></textarea>
+                        <div id="conversation" class="row">
+                            <h4 class="text-center" id="convousername">Username </h4>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Paragraph</p>
                                 </div>
-                                <div class="col-md-4">
-                                    <button class="btn btn-default btn-xs" type="button" id="submitreview">send</button>
+                                <div class="col-md-12">
+                                    <p>Paragraph</p>
                                 </div>
-                                <input class="form-control hidden" type="text" name="tradeID">
-                            </form>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Paragraph</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <p>Paragraph</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Paragraph</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Paragraph</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form method="post" id="messageuser">
+                                        <div class="col-md-8">
+                                            <input class="form-control" type="text">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <button class="btn btn-default btn-xs" type="button" id="submitreview">send</button>
+                                        </div>
+                                        <input class="form-control hidden" type="text" name="tradeID">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div id="leavereview">
+                        <h4 class="text-center">Leave Review</h4>
+                        <form method="post" id="userreviewform">
+                            <div class="form-group">
+                                <textarea class="form-control" form="userreviewform" maxlength="50"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control">
+                                    <optgroup label="User Rating">
+                                        <option value="5" selected="">5</option>
+                                        <option value="4">4</option>
+                                        <option value="3">3</option>
+                                        <option value="2">2</option>
+                                        <option value="1">1</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default btn-xs" type="button" id="submitreview">submit</button>
+                            </div>
+                            <input class="form-control hidden" type="text" name="tradeID">
+                        </form>
+                        <p>Please remember, reviews are permenant and cannot be changed</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container items">
-        <div class="row people">
-            <div class="col-md-4 col-sm-6 item">
-                <div class="articles box"><a href="itemdetails.html"><h3 class="name">Vans Slip ons</h3><img class="img-rounded profileimage" src="assets/img/Image1.jpg"></a>
-                    <p class="title">£22 </p>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. </p>
+    <div id="itemsbackground">
+        <div class="container items">
+            <div class="row people">
+                <div class="col-md-4 col-sm-6 item">
+                    <h3 class="name">Vans slip ons</h3>
+                    <div class="row">
+                        <div class="col-md-12"><img class="img-rounded profileimage" src="assets/img/Image1.jpg"></div>
+                    </div>
+                    <div class="iteminfo">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="price">£22 </p>
+                                <button class="btn btn-default btn-xs messagebutton" type="button">message</button>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="condition">NEW </p>
+                                <p id="itemusername" class="username">username </p>
+                            </div>
+                        </div>
+                        <p class="description">Aenean tortor est, vulputate quis leo </p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 item">
-                <div class="box">
+                <div class="col-md-4 col-sm-6 item">
+                    <div class="box">
+                        <h3 class="name">Patta shirt</h3>
+                        <div class="row">
+                            <div class="col-md-12"><img class="img-rounded profileimage" src="assets/img/Image2.jpg"></div>
+                        </div>
+                        <div class="iteminfo">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="price">£30 </p>
+                                    <button class="btn btn-default btn-xs messagebutton" type="button">message </button>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="condition">7/10 </p>
+                                    <p id="itemusername" class="username">username </p>
+                                </div>
+                            </div>
+                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 item">
                     <h3 class="name">Patta shirt</h3>
                     <div class="row">
-                        <div class="col-md-12"><img class="img-rounded profileimage" src="assets/img/Image2.jpg"></div>
+                        <div class="col-md-12"><img class="img-rounded profileimage" src="assets/img/Image3.jpg"></div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="price">£30 </p>
+                    <div id="iteminfo">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="price">£30 </p>
+                                <button class="btn btn-default btn-xs messagebutton" type="button">message</button>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="condition">7/10 </p>
+                                <p id="itemusername" class="username">username </p>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <p class="condition">7/10 </p>
-                        </div>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <button class="btn btn-default btn-xs messagebutton" type="button">message user</button>
-                        </div>
-                        <div class="col-md-6"><a href="#">Link<p id="itemusername" class="username">username </p></a></div>
-                    </div>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
+                    <div class="box"></div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6 item">
-                <div class="box">
-                    <h3 class="name">Bape Hoody</h3><img class="img-rounded profileimage" src="assets/img/Image3.jpg">
-                    <p class="title">£30 </p>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. </p>
+                <div class="col-md-4 col-sm-6 item">
+                    <h3 class="name">Supreme hoody</h3>
+                    <div class="row">
+                        <div class="col-md-12"><img class="img-rounded profileimage" src="assets/img/Image4.jpg"></div>
+                    </div>
+                    <div class="iteminfo">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="price">£30 </p>
+                                <button class="btn btn-default btn-xs messagebutton" type="button">message</button>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="condition">7/10 </p>
+                                <p id="itemusername" class="username">username </p>
+                            </div>
+                        </div>
+                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/formvalidation.js"></script>
     <script src="assets/js/homepanel.js"></script>
     <script src="assets/js/messagenewuser.js"></script>
     <script src="assets/js/profilepanel.js"></script>
-    <script src="assets/js/uploadform.js"></script>
+    <script src="assets/js/uploadsizes.js"></script>
 </body>
 
 </html>

@@ -5,10 +5,9 @@ require 'upload.php';
 require_once 'loadreviews.php';
 
 $con = mysqli_connect("localhost", "root", "edward", "switchup");
-
-if (isSet($_SESSION["userID"])) {
 	
 	//loadProfile();
+	$userID = $_GET['userID'];
 	// Get user details
 	$query = "SELECT description FROM users WHERE id = '$userID'";
 	$result = mysqli_query($con, $query);
@@ -43,9 +42,6 @@ if (isSet($_SESSION["userID"])) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		$imageURLS[] = $row['imageURL'];
 	}
-} else {
-	header("location: login.php");
-}
 ?>
 
 

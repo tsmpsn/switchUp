@@ -15,10 +15,11 @@ require_once 'traderequest.php';
 	$getItemDetails = "SELECT * FROM item WHERE itemID = '$selectedItemID'";
 	$result = mysqli_query($con, $getItemDetails);
 	$itemDetails = mysqli_fetch_assoc($result);
-		// Get item image
-		$getImage = "SELECT imageURL FROM image WHERE itemID = '$selectedItemID'";
-		$result = mysqli_query($con, $getImage);
-		$image = mysqli_fetch_assoc($result);
+		
+	// Get item image
+	$getImage = "SELECT imageURL FROM image WHERE itemID = '$selectedItemID'";
+	$result = mysqli_query($con, $getImage);
+	$image = mysqli_fetch_assoc($result);
 	
 	// Get users items
 	$retrieveUserItems = "SELECT itemName FROM item WHERE userID = '$userID'";
@@ -70,15 +71,34 @@ require_once 'traderequest.php';
             </div>
         </nav>
         <div class="container" id="tradecontent">
-            <div class="col-md-4 col-sm-6 item">
-                <div class="articles box"><img class="img-rounded profileimage" src="<?php echo $image['imageURL'] ?>">
-                    <h3 class="name"><?php echo $itemDetails['itemName'] ?></h3>
-                    <p class="title"><?php echo $itemDetails['Price'] ?></p>
-                    <p class="description"><?php echo $itemDetails['Description'] ?></p>
-                </div>
-            </div>
+			<div class="col-md-4 col-sm-6">
+				<div class="box">
+					<h3 class="name"><?php echo $itemDetails['itemName'] ?></h3>
+					<div class="row">
+						<div class="col-md-12"><img class="img-rounded profileimage" src="<?php echo $image['imageURL'] ?>"></div>
+					</div>
+					<div class="iteminfo">
+						<div class="row">
+							<div class="col-md-6">
+								<p class="price"><?php echo "£" . $itemDetails['Price']; ?></p>
+								<?php if (isset($_SESSION['userID'])) { 
+										if (getUsernameFromUserID($itemDetails['userID']) != getUsernameFromUserID($_SESSION['userID'])) { ?>
+											<button class="btn btn-default btn-xs messagebutton" type="button" id="passitemusername" value="<?php echo getUsernameFromUserID($itemDetails['userID'])?>">message</button>
+								<?php }} ?>
+							</div>
+							<div class="col-md-6">
+								<p class="condition"><?php if ($itemDetails['ItemCondition'] == 11) { echo "NEW"; } else { echo $itemDetails['ItemCondition']; } ?></p>
+								<a href="userprofile.php?<?php echo getUsernameFromUserID($itemDetails['userID']) ?>" id="itemusername" class="username">
+									<?php echo getUsernameFromUserID($itemDetails['userID']) ?>
+								</a>
+							</div>
+							<p class="description"><?php echo $itemDetails['Description']; ?></p>
+						</div>
+					</div>
+				</div>
+			</div>
             <div class="col-md-4 col-sm-6" id="tradingform">
-                <h1>Trade? </h1>
+                <h1>Trade?</h1>
                 <form action='traderequest.php?id=<?php echo $_GET['id'];?>' method="post" id="requestatrade">
                     <div class="form-group">
                         <select class="form-control" name="itemname">
@@ -97,27 +117,20 @@ require_once 'traderequest.php';
                         </select>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-default" type="submit" id="confirmtrade">Confirm trade request</button>
+                        <button class="btn btn-default" type="submit" name="maketraderequest" id="confirmtrade">Confirm trade request</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h5>Tom Simpson © 2017</h5></div>
-                <div class="col-sm-6 social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-            </div>
-        </div>
-    </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/formvalidation.js"></script>
     <script src="assets/js/homepanel.js"></script>
     <script src="assets/js/profilepanel.js"></script>
     <script src="assets/js/uploadform.js"></script>
+	<script src="assets/js/messagenewuser.js"></script>
+
 </body>
 
 </html>

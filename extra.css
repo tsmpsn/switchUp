@@ -1,0 +1,16 @@
+#noreviews {
+	min-height: 100%;
+	padding: 5%;
+}
+
+#noreviews h1 {
+	color: #a30d0d;
+}
+
+body {
+	font-family: "Poppins", sans-serif;
+}
+
+.convorow a {
+	margin: 0;
+}

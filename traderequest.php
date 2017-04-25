@@ -1,7 +1,7 @@
 <?php 
 require_once 'init.php';
 
-if ($_POST) {
+if (isset($_POST['maketraderequest'])) {
 	
 	$tradeID = getHighestTradeID();
 	$userID1 = getUserIDFromItemID($_GET['id']);
@@ -10,8 +10,9 @@ if ($_POST) {
 	$itemID2 = getitemIDFromItemName($_POST['itemname']);
 	$tradetype = $_POST['tradetype'];
 	$status = 0;
+	$date = date('d.m.y');
 	$con = mysqli_connect("localhost", "root", "edward", "switchUP");
-	$makeTradeRequest = "INSERT INTO trade (tradeID, userID1, userID2, itemID1, itemID2, tradeType, status, lastChanged) VALUES ( '$tradeID', '$userID1', '$userID2', '$itemID1', '$itemID2', '$tradetype', '$status', 'now()' )";
+	$makeTradeRequest = "INSERT INTO trade (tradeID, userID1, userID2, itemID1, itemID2, tradeType, status, lastChanged) VALUES ( '$tradeID', '$userID1', '$userID2', '$itemID1', '$itemID2', '$tradetype', '$status', '$date' )";
 	if(mysqli_query($con, $makeTradeRequest)) {
 		echo "trade request made";
 	} else {

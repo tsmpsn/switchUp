@@ -2,10 +2,10 @@
 
 // TRADES
 
-// trade requests
+
 // get user trade requests
 	$RnoOfTrades = 0;
-	$getUserTradeRequests = "SELECT * FROM trade WHERE status = 0 AND userID2 = '$userID'";
+	$getUserTradeRequests = "SELECT * FROM trade WHERE status = 0 AND userID1 = '$userID'";
 	$result = mysqli_query($con, $getUserTradeRequests);
 	while ($row = mysqli_fetch_object($result)) {
 		$RnoOfTrades++;
@@ -14,22 +14,24 @@
 		$RitemID2DB[] = $row->itemID2;
 		$RuserID1DB[] = $row->userID1;
 		$RuserID2DB[] = $row->userID2;
+		$tradeTypeDB[] = $row->tradeType;
 		$RtimeRequestedDB[] = $row->lastChanged;
 	}
 
 // Accept or deny trade request
-	if ( isset( $_POST['asubmit'] ) ) {
+	if ( isset( $_POST['asubmit'] )) {
 			$status = 1;
 			updateTrade($status, $con);
-		} else if (isset( $_POST['dsubmit'] )) {
+		} else if ( isset( $_POST['dsubmit'] )) {
 			$status = -1;
 			updateTrade($status, $con);
 		}
 	
 //get user's accepted trades
 	$AnoOfTrades = 0;
-	$getUserAcceptedTrades = "SELECT * FROM trade WHERE status = 1 AND userID1 OR userID2 = '$userID'";
+	$getUserAcceptedTrades = "SELECT * FROM trade WHERE status = 1 AND (userID1 = '$userID'OR userID2 = '$userID')";
 	$result = mysqli_query($con, $getUserAcceptedTrades);
+	$no = mysqli_num_rows($result);
 	while ($row = mysqli_fetch_object($result)) {
 		$AnoOfTrades++;
 		$AtradeIDDB[] = $row->tradeID;
@@ -42,7 +44,7 @@
 
 //get user's declined trades
 	$DnoOfTrades = 0;
-	$getUserDeclinedTrades = "SELECT * FROM trade WHERE status = -1 AND userID1 OR userID2 = '$userID'";
+	$getUserDeclinedTrades = "SELECT * FROM trade WHERE status = -1 AND (userID1 = '$userID'OR userID2 = '$userID')";
 	$result = mysqli_query($con, $getUserDeclinedTrades);
 	while ($row = mysqli_fetch_object($result)) {
 		$DnoOfTrades++;
@@ -52,9 +54,9 @@
 		$DtimeDeclinedDB[] = $row->lastChanged;
 	}
 
-//get user's completed trades
+// Get user's completed trades
 	$CnoOfTrades = 0;
-	$getUserCompletedTrades = "SELECT * FROM trade WHERE status = 2 AND userID1 OR userID2 = '$userID'";
+	$getUserCompletedTrades = "SELECT * FROM trade WHERE status = 2 AND (userID1 = '$userID'OR userID2 = '$userID')";
 	$result = mysqli_query($con, $getUserCompletedTrades);
 	while ($row = mysqli_fetch_object($result)) {
 		$CnoOfTrades++;
@@ -65,7 +67,7 @@
 	}
 
 function updateTrade($status, $con) {
-	//Update trade table
+	// Update trade table
 	$tradeID = $_POST['tradeID'];
 	$updateTradeStatus = "UPDATE trade SET status='$status', lastChanged=now() WHERE tradeID = '$tradeID'";
 	// Mark items as swapped
@@ -77,5 +79,16 @@ function updateTrade($status, $con) {
 		
 	}
 }
+
+function getTradeType($typeNo) {
+	if ($typeNo == 1) {
+		echo "Postal Delivery";
+	} else if ($typeNo == 2) {
+		echo "Meet Up";
+	} else if ($typeNo == 3) {
+		echo "Middleman";
+	}
+}
+	
 
 ?>

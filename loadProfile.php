@@ -1,6 +1,10 @@
 <?php 
 	
-function loadProfile() {
+$con = mysqli_connect("localhost", "root", "edward", "switchup");
+
+if (isSet($_SESSION["userID"])) {
+	
+	//loadProfile();
 	// Get user details
 	$query = "SELECT description FROM users WHERE id = '$userID'";
 	$result = mysqli_query($con, $query);
@@ -17,7 +21,6 @@ function loadProfile() {
 		$itemIDDB[] = $row->itemID;
 		$itemNameDB[] = $row->itemName;
 		$sizeDB[] = $row->Size;
-		$priceDB[] = $row->Price;
 		$descriptionDB[] = $row->Description;
 		$conditionDB[] = $row->ItemCondition;
 	}
@@ -35,6 +38,8 @@ function loadProfile() {
 	while ($row = mysqli_fetch_assoc($result)) {
 		$imageURLS[] = $row['imageURL'];
 	}
+} else {
+	header("location: login.php");
 }
 
 ?>

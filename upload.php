@@ -5,24 +5,26 @@ $con = mysqli_connect("localhost", "root", "edward", "switchUP");
 $userID = $_SESSION["userID"];
 $noOfImages = 0;
 
-if ($_POST) {
+if (isset($_POST['uploadbutton'])) {
 	$itemID = getHighestItemID();
 	$itemName = $_POST['itemname'];
+	$itemGender = $_POST['gender'];
 	$itemType = $_POST['itemtype'];
 	$size = $_POST['size'];
-	$price = $_POST['price'];
 	$description = $_POST['description'];
 	$condition = $_POST['condition'];
 	$swapped = 0;
-	$sql = "INSERT INTO item (itemID, userID, Type, Size, Price, Description, ItemCondition, UploadTime, Swapped) VALUES ('$itemID', '$userID', '$itemType', '$size', '$price', '$description', $condition, now(), $swapped)";
-	mysqli_query($con, $sql);
-	$noOfImages = getNoOfImages($noOfImages);
-	for ($i = 0; $i < $noOfImages; $i++) {
+	$sql = "INSERT INTO item (itemID, itemName, userID, Type, Gender, Size, Description, ItemCondition, UploadTime, Swapped) VALUES ('$itemID', '$itemName', '$userID', '$itemType', '$itemGender', '$size', '$description', $condition, now(), $swapped)";
+	if (checkImageUploaded() == true) {
 		$imageID = getHighestImageID();
-		$imagetype = "item";
-		$imageURL = getImageURL($imagetype, $i);
-		$sql2 = "INSERT INTO image (imageID, imageURL, itemID) VALUES ('$imageID', '$imageURL', '$itemID')";
-		mysqli_query($con, $sql2);
+		$imageURL = getImageURL($i);
+		if ($imageURL == 2) {
+			echo "Image size too large";
+		} else {
+			$sql2 = "INSERT INTO image (imageID, imageURL, itemID) VALUES ('$imageID', '$imageURL', '$itemID')";
+			mysqli_query($con, $sql);
+			mysqli_query($con, $sql2);
+		}
 	}
 }
 
@@ -36,18 +38,14 @@ function getHighestItemID() {
 	return $value;
 }
 
-function getNoOfImages($noOfImages) {
+function checkImageUploaded() {
 	if(empty($_FILES['image1ToUpload']['name'])) {
-		echo"Please upload an image";
-	} else if (empty($_FILES['image2ToUpload']['name'])) {
-		$noOfImages = 1;
-	} else if (empty($_FILES['image3ToUpload']['name'])) {
-		$noOfImages = 2;
+		$message = "Please upload an image";
+		echo "<script type='text/javascript'>alert('$message');</script>";
+		return false;
 	} else {
-		$noOfImages = 3;
+		return true;
 	}
-	return $noOfImages;
-	
 }
 
 ?>

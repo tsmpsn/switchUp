@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dissertation</title>
+    <title>Register</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/Article-List.css">
     <link rel="stylesheet" href="assets/css/AXY-Contact-Us.css">
     <link rel="stylesheet" href="assets/css/AXY-Contact-Us1.css">
+    <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean-1.css">
     <link rel="stylesheet" href="assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
@@ -19,26 +20,24 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand navbar-link" href="#"><img src="assets/img/logo.png" id="sitelogo"></a>
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+    <div class="background">
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand navbar-link" href="home.php"><img src="assets/img/logo.png" id="sitelogo"></a>
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li role="presentation"><a href="home.php">Browse without signing in </a></li>
+                        <li role="presentation"><a href="help.php">Help </a></li>
+                        <li role="presentation"><a href="login.php">Logout</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li role="presentation"><a href="home.php">Home </a></li>
-                    <li role="presentation"><a href="messages.php">Messages </a></li>
-                    <li role="presentation"><a href="profile.php">Profile </a></li>
-                    <li role="presentation"><a href="help.php">Help </a></li>
-                    <li role="presentation"><a href="login.php">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="register-photo">
-        <div class="form-container">
-            <form method="post">
+        </nav>
+        <div id="registercontent">
+            <form method="post" id="registerform">
                 <h2 class="text-center"><strong>Create an account</strong></h2>
                 <div class="form-group">
                     <input class="form-control maxlength20" type="text" name="fullname" placeholder="Fullname" requireddata-parsley-length="[5,20]">
@@ -67,22 +66,12 @@
             </form>
         </div>
     </div>
-    <footer class="site-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h5>Tom Simpson © 2017</h5></div>
-                <div class="col-sm-6 social-icons"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-            </div>
-        </div>
-    </footer>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/formvalidation.js"></script>
     <script src="assets/js/homepanel.js"></script>
     <script src="assets/js/messagenewuser.js"></script>
     <script src="assets/js/profilepanel.js"></script>
-    <script src="assets/js/uploadform.js"></script>
+    <script src="assets/js/uploadsizes.js"></script>
 </body>
 
 </html>

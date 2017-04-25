@@ -12,7 +12,6 @@ while ($row = mysqli_fetch_object($result)) {
 	$itemNameDB[] = $row->itemName;
 	$usernameDB[] = getUsernameFromUserID($row->userID);
 	$sizeDB[] = $row->Size;
-    $priceDB[] = $row->Price;
     $descriptionDB[] = $row->Description;
     $conditionDB[] = $row->ItemCondition;
 }
